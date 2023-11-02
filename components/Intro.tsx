@@ -1,19 +1,17 @@
 "use client";
 
+import { useActiveSectionContext } from "@/context/ActiveSection";
+import { useSectionInView } from "@/lib/hooks";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
-import { FaGithubSquare, FaReact } from "react-icons/fa";
-import { LuGraduationCap } from "react-icons/lu";
+import { FaGithubSquare } from "react-icons/fa";
 import { HiDownload } from "react-icons/hi";
-import { useInView } from "react-intersection-observer";
-import { useActiveSectionContext } from "@/context/ActiveSection";
-import { useEffect } from "react";
-import { useSectionInView } from "@/lib/hooks";
 
 const Intro = () => {
 	const { ref } = useSectionInView("Home", 0.5);
+	const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
 	return (
 		<section
@@ -81,13 +79,17 @@ const Intro = () => {
 				<Link
 					href="#contact"
 					className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition"
+					onClick={() => {
+						setActiveSection("Contact");
+						setTimeOfLastClick(Date.now());
+					}}
 				>
 					Contact me here{" "}
 					<BsArrowRight className="opacity-70 group-hover:translate-x-1 transition" />
 				</Link>
 
 				<a
-					className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack"
+					className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10"
 					href="/CV.pdf"
 					download
 				>
@@ -96,16 +98,16 @@ const Intro = () => {
 				</a>
 
 				<a
-					className="bg-white p-4 text-gray-700 hover:text-gray-950 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack"
-					href="https://linkedin.com"
+					className="bg-white p-4 text-gray-700 hover:text-gray-950 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
+					href="https://www.linkedin.com/in/lavesh-sahu-8b63551a1/"
 					target="_blank"
 				>
 					<BsLinkedin />
 				</a>
 
 				<a
-					className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack"
-					href="https://github.com"
+					className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
+					href="https://github.com/Lavesh1208"
 					target="_blank"
 				>
 					<FaGithubSquare />

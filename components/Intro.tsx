@@ -7,10 +7,17 @@ import { BsArrowRight, BsLinkedin } from "react-icons/bs";
 import { FaGithubSquare, FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
 import { HiDownload } from "react-icons/hi";
+import { useInView } from "react-intersection-observer";
+import { useActiveSectionContext } from "@/context/ActiveSection";
+import { useEffect } from "react";
+import { useSectionInView } from "@/lib/hooks";
 
 const Intro = () => {
+	const { ref } = useSectionInView("Home", 0.5);
+
 	return (
 		<section
+			ref={ref}
 			id="home"
 			className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
 		>

@@ -5,6 +5,7 @@ import React from "react";
 import SectionHeading from "./SectionHeading";
 import { skillsData } from "@/lib/data";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const fadeInAnimationVariants = {
 	initial: {
@@ -42,7 +43,15 @@ const Skills = () => {
 						}}
 						custom={index}
 					>
-						{skill}
+						<div className="flex items-center">
+							<Image
+								src={skill.skillImg}
+								alt={skill.skillName}
+								width={25}
+								height={25}
+							/>
+							<span className="ml-2">{skill.skillName}</span>
+						</div>
 					</motion.li>
 				))}
 			</ul>

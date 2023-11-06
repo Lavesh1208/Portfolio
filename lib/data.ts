@@ -39,6 +39,7 @@ export const projectsData = [
 			"ExpressJS",
 			"MongoDB",
 		],
+		deployedUrl: "https://real-estate-typescript-two.vercel.app/",
 		imageUrl: realEstateImg,
 	},
 	{
@@ -54,6 +55,8 @@ export const projectsData = [
 			"ExpressJS",
 			"MongoDB",
 		],
+		deployedUrl: "https://yelp-camp-typescript.vercel.app/",
+
 		imageUrl: yelpcampImg,
 	},
 	{
@@ -61,6 +64,7 @@ export const projectsData = [
 		description:
 			"The Airbnb Clone is a sophisticated web app built with NextJS, MongoDB, Framer, and NextAuth. It replicates the core functionalities of the popular Airbnb platform.",
 		tags: ["React", "Tailwind", "Next.js", "MongoDB", "Framer", "NextAuth"],
+		deployedUrl: "https://air-rent-booking.vercel.app/",
 		imageUrl: airbnbImg,
 	},
 ] as const;
